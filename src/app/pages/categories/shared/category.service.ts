@@ -53,6 +53,7 @@ export class CategoryService {
     return this.http.delete(url).pipe(
       catchError(this.handleError),
       map(() => null)
+    )
   }
 
   private jsonDataToCategories(jsonData: any[]): Category[]{
