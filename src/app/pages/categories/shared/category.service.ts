@@ -12,11 +12,12 @@ import { CategoriesRoutingModule } from '../categories-routing.module';
 })
 export class CategoryService {
 
-  private apiPath: string= "api/catehories";
+  private apiPath: string = "api/categories";
 
   constructor( private http: HttpClient) { }
 
-  getAll(): Observable<Category[]>{
+  getAll(): Observable<Category[]> {
+    console.log('test')
     return this.http.get(this.apiPath).pipe(
       catchError(this.handleError),
       map(this.jsonDataToCategories)
@@ -63,6 +64,7 @@ export class CategoryService {
   }
 
   private jsonDataToCategory(jsonData: any): Category {
+    console.log("teste", jsonData)
     return jsonData as Category;
 
   }
